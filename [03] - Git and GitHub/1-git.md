@@ -110,3 +110,19 @@ git branch [name-of-the-branch]
 ```bash
 git switch [name-of-the-branch]
 ```
+
+# Merging
+
+1. Merging branches
+
+- Note: You should not be in the branch that you want to delete.
+
+```bash
+git merge [name-of-the-branch]
+```
+
+2. Delete unused branches
+
+```bash
+git branch -d [name-of-the-branch]
+```
