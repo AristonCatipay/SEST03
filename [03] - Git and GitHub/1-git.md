@@ -86,3 +86,27 @@ git revert --no-edit [problematic-commit-hash]
 ```bash
 git reset [second-to-the-last-commit-hash]
 ```
+
+# Branching
+
+- git init: Think of this as planting the seed.
+- Create a commit: The plant will grow.
+- Main/Master Branch: trunk of the tree.
+
+1. View all the available branches.
+
+```bash
+git branch
+```
+
+2. Create a branch
+
+```bash
+git branch [name-of-the-branch]
+```
+
+3. Switch to a different branch
+
+```bash
+git switch [name-of-the-branch]
+```
