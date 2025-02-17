@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML Images, Videos and Audio</title>
+    <!-- favicon: 96px x 96px -->
+    <link rel="icon" href="./images/favicon.png" />
   </head>
   <body>
     <h1>HTML Images, Videos and Audio</h1>
@@ -21,5 +23,39 @@
     <!-- 2. Right Click. -->
     <!-- 3. Choose `Copy image address` -->
     <!-- 4. Paste the image address to the src attribute. -->
+
+    <h2>Image from Local Machine</h2>
+    <img src="./images/wolverine-2.jpeg" alt="Image of Wolverine" width="300" />
+
+    <h2>Video</h2>
+    <video controls autoplay loop muted>
+      <source src="./videos/onecodecamp-mp4.mp4" type="video/mp4" />
+      <source src="./videos/onecodecamp-wav.webm" type="video/webm" />
+      Your browser does not support the video element.
+    </video>
+
+    <h2>Youtube Video</h2>
+    <!-- 
+    1. Click the Share Button.
+    2. Click the embedded.
+    3. Copy and paste to your HTML file.
+    -->
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/3hiNcZ5OpgY?si=WcrLhEDCOJjWXnZQ"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+
+    <h2>Audio</h2>
+    <audio controls loop muted autoplay>
+      <source src="./audios/audio-mp3.mp3" type="audio/mp3" />
+      <source src="./audios/audio-wav.wav" type="audio/wav" />
+      Your browser does not support the audio element.
+    </audio>
   </body>
 </html>
