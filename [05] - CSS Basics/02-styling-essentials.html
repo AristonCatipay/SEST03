@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Basics: Typography and Text Decoration</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+      /* Element Selector */
+      body {
+        /* Default Font: Times New Roman */
+        /* Font Fallback - if all fonts is not supported, check the device and use the first sans-serif font available. */
+        font-family: "Poppins", sans-serif;
+      }
+
+      #text-styling {
+        /* CTRL + / - Create a comment. */
+
+        /* Font Weight */
+        /* Keyword Values */
+        font-weight: bold;
+        font-weight: bolder;
+        font-weight: lighter;
+        font-weight: normal;
+
+        /* Numeric Values */
+        font-weight: 100; /* Thin (Hairline) */
+        font-weight: 200; /* Extra Light */
+        font-weight: 300; /* Light */
+        font-weight: 400; /* Normal */
+        font-weight: 500; /* Medium */
+        font-weight: 600; /* Semi-Bold */
+        font-weight: 700; /* Bold */
+        font-weight: 800; /* Extra Bold */
+        font-weight: 900; /* Black */
+        font-weight: 950; /* Extra Black */
+
+        /* Font Style */
+        font-style: normal;
+        font-style: oblique;
+        font-style: italic;
+
+        /* Text Align */
+        text-align: left;
+        text-align: right;
+        text-align: justify;
+        text-align: center;
+
+        /* Line Height */
+        line-height: 40px;
+
+        /* Letter Spacing */
+        letter-spacing: 8px; /* Add Space */
+        letter-spacing: -2px; /* Remove Space */
+      }
+
+      #text-decoration {
+        text-decoration-line: none;
+        text-decoration-line: line-through;
+        text-decoration-line: overline;
+        text-decoration-line: underline;
+
+        text-decoration-style: dashed;
+        text-decoration-style: dotted;
+        text-decoration-style: double;
+        text-decoration-style: solid;
+        text-decoration-style: wavy;
+
+        text-decoration-color: red;
+
+        text-decoration-thickness: 4px;
+
+        /* Combine all of the styling */
+        text-decoration: line-through wavy red 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Typography and Text Decoration</h1>
+    <h2>CSS Typography</h2>
+    <p id="text-styling">
+      This is a sample sentence. Lorem ipsum dolor, sit amet consectetur
+      adipisicing elit. Quos, magni.
+    </p>
+
+    <h2>CSS Text Decoration</h2>
+    <p id="text-decoration">This is a another sample sentence.</p>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Gradients</title>
+    <style>
+      div {
+        /* Element Selector */
+        /* This will select all the div tags. */
+        height: 100px;
+      }
+
+      #top-to-bottom {
+        background-image: linear-gradient(#ef1024, #10efdb);
+      }
+
+      #left-to-right {
+        background-image: linear-gradient(to right, #22dd32, #dd22cd);
+        /* background-image: linear-gradient(to left, #22dd32, #dd22cd); */
+      }
+
+      #top-left-to-bottom-right {
+        background-image: linear-gradient(to bottom right, #00ffff, #ffff00);
+        /* background-image: linear-gradient(to bottom left, #00ffff, #ffff00); */
+        /* background-image: linear-gradient(to top left, #00ffff, #ffff00); */
+      }
+
+      #multiple-color-stops {
+        background-image: linear-gradient(#fe218b, #fed700, #21b0fe);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Gradients</h1>
+    <h2>CSS Linear Gradient</h2>
+    <div id="top-to-bottom">Top to Bottom</div>
+    <div id="left-to-right">Left to Right</div>
+    <div id="top-left-to-bottom-right">Top Left to Bottom Right</div>
+    <p id="multiple-color-stops">Multiple Color Stops</p>
+
+    <h2>CSS Radial Gradient</h2>
+    <div></div>
+  </body>
+</html>

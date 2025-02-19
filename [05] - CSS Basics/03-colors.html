@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Colors</title>
+    <style>
+      /* 
+      Primary Colors (Lights)
+      1. Red - angry, danger, love, excitement, passion
+      2. Green - relaxed, peaceful, nature, health
+      3. Blue - sad, trust, calm, intellegence
+
+      Secondary Colors
+      1. Yellow - Creativity, Caution
+      2. Magenta - Royalty, Luxury
+      3. Cyan (Green + Blue)- (Modern and Innovation)
+      */
+
+      #color-name {
+        /* https://coolors.co/ */
+        /* https://developer.mozilla.org/en-US/docs/Web/CSS/named-color */
+        color: wheat;
+        background-color: darkblue;
+      }
+
+      #hexadecimal {
+        /* #RRGGBBAA */
+        /* RR - Red, GG - Green, BB - Blue, AA - Alpha */
+        /* Values: 0 - 9, A - F */
+        background-color: #95f9c4d6;
+        color: #0b3866;
+      }
+
+      #rgb {
+        /* rgba(red, green, blue, alpha) */
+        /* RGB Values: 0 - 255 */
+        /* Alpha: 0.0 (Fully Transparent) - 1.0 (Fully Opaque) */
+        color: rgb(255, 0, 0);
+        background-color: rgba(152, 15, 143, 0.775);
+      }
+
+      #hsl {
+        /* hsl(hue, saturation, lightness) */
+        /* hue: (RED 360) (GREEN 120) (BLUE 240) */
+        /* saturation: (Shade of Gray - 0%) (Full Color - 100%) */
+        /* lightness: (Black - 0%) (White - 100%) */
+        /* alpha: 0.0 - 1.0 */
+        color: hsl(360, 80%, 80%);
+        background-color: hsla(120, 80%, 80%, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Colors</h1>
+    <p id="color-name">This is a colorful sentence</p>
+    <p id="hexadecimal">This is a colorful sentence</p>
+    <p id="rgb">This is a colorful sentence</p>
+    <p id="hsl">This is a colorful sentence</p>
+  </body>
+</html>
