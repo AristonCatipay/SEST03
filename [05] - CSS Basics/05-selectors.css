@@ -1,0 +1,142 @@
+/* Universal Selector */
+* {
+  font-family: Tahoma, sans-serif;
+}
+
+/* Element Selector */
+span {
+  background-color: #9bc1bc;
+  color: #f4f1bb;
+}
+
+/* ID Selector */
+#secondary-heading {
+  text-align: center;
+}
+
+/* Class Selector */
+.paragraph {
+  background-color: #fe7f2d;
+  color: #233d4d;
+}
+
+/* AND */
+/* Combine multiple conditions together. */
+p.paragraph.first {
+  font-size: 20px;
+}
+
+/* Grouping Selector (OR) */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Descendant Selector */
+ul li {
+  background-color: #e07a5f;
+  color: #f4f1de;
+}
+
+/* This will still work. */
+ul span {
+  font-style: italic;
+}
+
+/* Direct Child/Descendant (>) */
+/* li is the direct child of the ul. */
+ul > li {
+  font-weight: bold;
+}
+
+/* span is NOT the direct child of the ul. */
+/* This will not work! */
+/* ul > span {
+  font-weight: bold;
+} */
+
+/* Sibling Selector */
+/* 1. Next Sibling (~) */
+li.second ~ li {
+  text-align: center;
+}
+
+/* 2. Direct Sibling (+) */
+li.second + li {
+  text-decoration: line-through red dashed 2px;
+}
+
+/* Pseudo-classes */
+p:first-child {
+  text-decoration: overline red 4px;
+}
+
+p:last-child {
+  text-decoration: underline red 4px;
+}
+
+p:nth-child(2) {
+  text-decoration: line-through purple 4px;
+}
+
+p:nth-child(2n) {
+  background-color: #faae7b;
+}
+
+p:not(.middle) {
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* Modify the special state of an element. */
+input:focus {
+  color: #ebebd3;
+  background-color: #083d77;
+}
+
+input:required {
+  background-color: #d62828;
+  color: #003049;
+}
+
+button:hover {
+  background-color: #0cce6b;
+  color: #363537;
+}
+
+button:active {
+  background-color: #ffd166;
+}
+
+a:link {
+  color: #2b2d42;
+  text-decoration-color: #ef233c;
+}
+
+a:visited {
+  color: #118ab2;
+  text-decoration-color: #ef476f;
+}
+
+/* Attribute Selector */
+a[target="_blank"] {
+  text-decoration: none;
+}
+
+/* Pseudo-element (::)*/
+p.quote::first-letter {
+  color: red;
+  font-size: 26px;
+}
+
+p.quote::before {
+  content: "(Before paragraph)";
+  font-style: italic;
+  color: red;
+}
+
+p.quote::after {
+  content: "(After paragraph)";
+  font-style: italic;
+  color: red;
+}

@@ -27,7 +27,11 @@
       }
 
       #multiple-color-stops {
-        background-image: linear-gradient(#fe218b, #fed700, #21b0fe);
+        background-image: linear-gradient(
+          #fe218b 10%,
+          #fed700 50%,
+          #21b0fe 90%
+        );
       }
     </style>
   </head>
@@ -37,9 +41,6 @@
     <div id="top-to-bottom">Top to Bottom</div>
     <div id="left-to-right">Left to Right</div>
     <div id="top-left-to-bottom-right">Top Left to Bottom Right</div>
-    <p id="multiple-color-stops">Multiple Color Stops</p>
-
-    <h2>CSS Radial Gradient</h2>
-    <div></div>
+    <div id="multiple-color-stops">Multiple Color Stops</div>
   </body>
 </html>
