@@ -1,0 +1,70 @@
+.box {
+  background-color: #ed6a5a;
+  height: 100px;
+  width: 100px;
+  color: #f4f1bb;
+  font-weight: bolder;
+  box-shadow: 10px 10px 8px 2px #9bc1bc;
+  /* h-offset: negative (left) - positive (right) */
+  /* v-offset: negative (top) - positive (bottom)*/
+  /* blur: higher value will make it more blurred*/
+  /* spread: (optional) */
+  /* color of the shadow */
+  /* inset (optional) */
+
+  /* 1 value - all sides */
+  /* 2 values - (top and bottom) (left and right) */
+  /* 3 values - top, (left and right), bottom */
+  /* 4 values - top, right, bottom, left (clockwise) */
+  border-style: solid dashed dotted double;
+  border-width: 8px 10px 12px 14px;
+  border-color: #219ebc #023047 #ffb703 #fb8500;
+
+  border: solid 4px #023047;
+}
+
+/* Padding (inner spacing) - add a spcce inside the box */
+.box1 {
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  padding-left: 40px;
+}
+
+/* Padding Shorthand */
+.box2 {
+  /* 1 value - all sides */
+  /* 2 values - (top and bottom) (left and right) */
+  /* 3 values - top, (left and right), bottom */
+  /* 4 values - top, right, bottom, left (clockwise) */
+  padding: 10px 20px 30px 40px;
+}
+
+/* Margin (space outside) */
+.box3 {
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  margin-left: 40px;
+}
+
+/* Margin Shorthand */
+.box4 {
+  /* 1 value - all sides */
+  /* 2 values - (top and bottom) (left and right) */
+  /* 3 values - top, (left and right), bottom */
+  /* 4 values - top, right, bottom, left (clockwise) */
+  margin: 10px 20px 30px 40px;
+}
+
+.circle {
+  /* total width: 10 + 100 + 10 = 120 px */
+  /* radius: 120 / 2 = 60 px */
+  background-color: #ff7d00;
+  width: 200px;
+  height: 200px;
+  color: #ffecd1;
+  border: solid 10px #001524;
+  border-radius: 50%;
+  text-align: center;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Box Sizing</title>
+    <style>
+      .box {
+        background-color: #9bc1bc;
+        height: 100px;
+        width: 100px;
+        margin: 10px;
+        padding: 10px;
+        border: solid 8px #ed6a5a;
+      }
+
+      /* Total Width */
+      /* border-left + padding-left + width + padding-right + border-right*/
+      .box1 {
+        /* Total Width: 136px*/
+        box-sizing: content-box; /* default */
+      }
+
+      .box2 {
+        /* Total Width: 100 */
+        /* Total Border + Total Padding = 16 + 20 =3 36 */
+        /* 100 - 36 = 64 */
+        /* 8 + 10 + 64 + 10 + 8 = 100 */
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Box Sizing</h1>
+    <div class="box box1">Context Box</div>
+    <div class="box box2">Border Box</div>
+  </body>
+</html>
