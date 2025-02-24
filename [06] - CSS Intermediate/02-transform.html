@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Transform</title>
+    <style>
+      .style {
+        width: 250px;
+        height: 250px;
+        background-color: #e94f37;
+        color: #f6f7eb;
+        border: solid 4px #393e41;
+        font-size: 2rem;
+        text-align: center;
+        margin: 10px;
+        padding: 10px;
+      }
+
+      /* Translate */
+      .box1 {
+        /* 
+            transform: translateX();
+            negative:left , positive:right 
+        */
+        /* 
+            transform: translateY();
+            negative: up, positive: down
+        */
+
+        /* transform: translate(x-axis, y-axis); */
+        transform: translate(200px, -200px);
+      }
+
+      .box2 {
+        /* transform: rotateX(45deg); */
+        /* transform: rotateX(90deg); */
+        /* transform: rotateX(135deg); */
+        /* transform: rotateY(45deg); */
+        /* transform: rotateY(90deg); */
+        /* transform: rotateY(135deg); */
+        /* transform: rotate(z-axis); */
+        transform: rotate(135deg);
+      }
+
+      .box3 {
+        /* 1 = 100% */
+        /* transform: scaleX(1.5); */
+        /* transform: scaleY(1.5); */
+        /* transform: scale(width, height) */
+        transform: scale(0.5, 0.5);
+      }
+
+      .box4 {
+        transform: translate(200px, 200px) scale(0.5, 0.5) rotate(35deg);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Transform</h1>
+    <div class="style box1">Translate</div>
+    <div class="style box2">Rotate</div>
+    <div class="style box3">Scale</div>
+    <div class="style box4">Combination</div>
+  </body>
+</html>

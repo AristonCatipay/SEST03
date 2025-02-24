@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Display and Visibility</title>
+    <style>
+      /* block-level: entire line. */
+      #block-level {
+        background-color: #0d3b66;
+        color: #faf0ca;
+        /* display: block; default */
+        display: inline;
+        /* height and width works! */
+        height: 200px;
+        width: 200px;
+      }
+
+      /* inline-level: take the space it needs. */
+      /* height and width doesn't work! */
+      #inline-level {
+        background-color: #e07a5f;
+        color: #f4f1de;
+        /* display: inline; Default */
+        display: block;
+        width: 200px;
+        height: 200px;
+      }
+
+      /* inline-block: this would allow width and height to apply and it will only take the space that it needs. */
+      #inline-block {
+        background-color: #0cce6b;
+        color: #363537;
+        display: inline-block;
+        width: 200px;
+        height: 200px;
+      }
+
+      /* none: this will not display/render the element */
+      #none {
+        color: #8000ff;
+        background-color: #00ffff;
+        display: none;
+      }
+
+      #hidden {
+        background-color: #2e4057;
+        color: #f6d8ae;
+        width: 200px;
+        height: 100px;
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Display and Visibility</h1>
+    <div id="block-level">
+      This is a block-level element changed to inline-level element.
+    </div>
+    <span id="inline-level"
+      >This is a inline-level element changed to block-level element.</span
+    >
+    <span>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, quas.
+    </span>
+    <span id="inline-block"
+      >This is an inline-level element changed to inline-block-level.</span
+    >
+    <span>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, quas.
+    </span>
+    <p id="none">This element will not be displayed.</p>
+    <p id="hidden">This element will be hidden.</p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium,
+      adipisci. Fugit, voluptas perferendis! Reiciendis velit vel ratione modi
+      dignissimos molestias.
+    </p>
+  </body>
+</html>
