@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Animation</title>
+    <style>
+      .loader {
+        width: 80px;
+        height: 80px;
+        border: 6px solid #1d3557;
+        border-top-color: transparent;
+        border-radius: 50%;
+        text-align: center;
+        color: white;
+
+        /* Animation */
+        /*
+        animation-name: spin;
+        animation-duration: 2000ms;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        */
+
+        /* Shorthand Syntax */
+        /* animation: [name][duration][timing-function][iteration-count][direction]; */
+        animation: spin 2000ms linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Animation</h1>
+    <div class="loader"></div>
+  </body>
+</html>

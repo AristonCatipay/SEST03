@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Background Images</title>
+    <style>
+      body {
+        background-color: #2b2d42;
+        color: #edf2f4;
+        background-image: url("./images/1200px-starry.png");
+        /* background-repeat: repeat-x; */
+        /* background-repeat: repeat-y; */
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        /* background-position: left top; (default)*/
+        /* background-position: left bottom; */
+        /* background-position: right top; */
+        /* background-position: right bottom; */
+        background-position: center;
+        background-size: cover;
+      }
+
+      .card {
+        background-color: #02c39a;
+        width: 800px;
+        height: 800px;
+        font-size: 2rem;
+        padding: 40px;
+        border-radius: 80px;
+      }
+
+      .card img {
+        display: block;
+        height: 70%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .container-background-image {
+        width: 1000px;
+        height: 900px;
+        background-color: #03045e;
+        font-size: 2rem;
+        background-image: url("./images/1200px-pencil.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Background Images</h1>
+    <div class="card">
+      <img src="./images/vegetable-salad.png" alt="" />
+      <h2>Vegetable Salad</h2>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet,
+        repudiandae!
+      </p>
+    </div>
+
+    <div class="container-background-image">
+      <h2>This is the title</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+        eligendi molestias amet sequi magni suscipit explicabo itaque
+        voluptates, quia inventore?
+      </p>
+    </div>
+  </body>
+</html>
