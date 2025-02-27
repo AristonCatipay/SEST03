@@ -1,0 +1,69 @@
+body {
+  background-color: #393d3f;
+  color: #fdfdff;
+}
+
+.parent {
+  border: 8px solid #62929e;
+  padding: 6px;
+}
+
+.card {
+  background-color: #c6c5b9;
+  border: 8px solid #546a7b;
+  padding: 20px;
+  margin: 2px;
+  font-size: 3rem;
+  border-radius: 14px;
+  text-align: center;
+  /* 1. left(negative) - right(positive) */
+  /* 2. top(negative) - bottom(positive) */
+  /* 3. lower(shadow is closer) - higher(radius is bigger) */
+  box-shadow: 0px 0px 10px #fdfdff;
+}
+
+/* Breakpoints */
+/* 
+  Mobile Devices: Less than 481px
+  iPads, Tablets: 481px - 768px
+  Small Screens, Laptops: 769px - 1024px
+  Desktops, Large Screens: 1025px - 1200px
+  Extra Large Screens, TV: 1201px and greater
+*/
+/* 
+1. Desktop first approach
+2. Mobile first approach 
+*/
+
+@media screen and (min-width: 1025px) {
+  .parent {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .card {
+    color: #fff1d0;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .parent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card {
+    color: #ffa69e;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .parent {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    color: #d81159;
+  }
+}
