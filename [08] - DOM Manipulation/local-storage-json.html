@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Storage and JSON</title>
+  </head>
+  <body>
+    <h1>Local Storage and JSON</h1>
+    <script>
+      // Local Storage: store data locally within the users browser.
+      // Data stored in Local Storage will persist after the browser is closed.
+      // Session Storage: cleared when the browser is closed.
+
+      const person = {
+        firstName: "John",
+        lastName: "Doe",
+        age: 30,
+        hobbies: ["Coding", "Photography"],
+        address: {
+          street: "Example Street",
+          city: "Example City",
+        },
+      };
+
+      console.log("Person:", person);
+      console.log("Data Type:", typeof person);
+
+      // JSON.stringify(): convert data structure to a JSON String.
+      const serializedPerson = JSON.stringify(person);
+      console.log("Serialized Object:", serializedPerson);
+
+      const numbers = [1, 2, 3, 4, 5];
+      console.log("Data Type:", typeof numbers);
+      const serializedNumber = JSON.stringify(numbers);
+      console.log("Serialized Array:", serializedNumber);
+
+      localStorage.setItem("person", serializedPerson);
+      localStorage.setItem("numbers", serializedNumber);
+
+      const personJSONString = localStorage.getItem("person");
+      console.log(personJSONString);
+      const deserializedObject = JSON.parse(personJSONString);
+      console.log("Deserialized Object:", deserializedObject);
+
+      const numberJSONString = localStorage.getItem("numbers");
+      console.log(numberJSONString);
+      const deserializedArray = JSON.parse(numberJSONString);
+      console.log("Deserialized Array:", deserializedArray);
+
+      localStorage.removeItem("person");
+      localStorage.removeItem("numbers");
+    </script>
+  </body>
+</html>
