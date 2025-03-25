@@ -5,18 +5,14 @@ import BooksContainer from "./components/3-ComponentStyling";
 import ProductContainer from "./components/ProductCard/ProductCard";
 import ConditionalRendering from "./components/4-ConditionalRendering";
 import List from "./components/5-RenderingList";
+import UseState from "./components/6-UseState";
+import LoginForm from "./components/7-LoginForm";
+import UseEffect from "./components/8-UseEffect";
 
 function App() {
   return (
     <>
-      <Component></Component>
-      <ConditionalRendering
-        isUserLoggedIn={true}
-        username="Gerome Davao"
-      ></ConditionalRendering>
-      <BooksContainer></BooksContainer>
-      <List></List>
-      <ProductContainer></ProductContainer>
+      <UseEffect></UseEffect>
     </>
   );
 }
