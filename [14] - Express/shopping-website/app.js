@@ -1,5 +1,6 @@
 const express = require("express");
 const products = require("./products");
+const cart = require("./cart");
 const app = express();
 const port = 3000;
 
@@ -67,6 +68,81 @@ app.post("/api/products", (req, res) => {
   // 200: OK - Successful
   // 201: Succesfully created.
   res.status(201).json({ message: "Product added to the product list." });
+});
+
+app.put("/api/products/:productId", (req, res) => {
+  const productId = parseInt(req.params.productId);
+  const { name, price } = req.body;
+
+  if (!name || !price) {
+    return res.status(400).json({ message: "Name and price is required." });
+  }
+
+  const product = products.find(
+    (productObject) => productObject.id === productId
+  );
+
+  if (product) {
+    product.name = name;
+    product.price = price;
+    res.status(200).json({ message: "Product updated successfully!" });
+  } else {
+    res.status(404).json({ message: "Product not found!" });
+  }
+});
+
+app.delete("/api/products/:productId", (req, res) => {
+  const productId = parseInt(req.params.productId);
+
+  const productIndex = products.findIndex(
+    (productObject) => productObject.id === productId
+  );
+
+  if (productIndex !== -1) {
+    // .splice(): add or delete element/s at a specified index
+    // 1st argument: start
+    // 2nd argument: delete count
+    // 3rd argument: element/s you want to add
+    products.splice(productIndex, 1);
+    res.status(200).json({ message: "Product deleted successfully!" });
+  } else {
+    res.status(404).json({ message: "Product not found." });
+  }
+});
+
+// Cart
+app.post("/api/cart", (req, res) => {
+  const productId = req.body.productId;
+
+  const product = products.find(
+    (productObject) => productObject.id === productId
+  );
+
+  if (product) {
+    cart.push(product);
+    res.status(201).json({ message: "Product added to cart." });
+  } else {
+    res.status(404).json({ message: "Product nof found." });
+  }
+});
+
+app.get("/api/cart", (req, res) => {
+  res.status(200).json({ cart });
+});
+
+app.delete("/api/cart/:productId", (req, res) => {
+  const productId = parseInt(req.params.productId);
+
+  const index = cart.findIndex(
+    (productObject) => productObject.id === productId
+  );
+
+  if (index !== -1) {
+    cart.splice(index, 1);
+    res.status(200).json({ message: "Product removed from cart." });
+  } else {
+    res.status(404).json({ message: "Product not found in cart." });
+  }
 });
 
 // app.listen(): start the server on the specified port.
