@@ -1,4 +1,7 @@
+// npm install express
 const express = require("express");
+// npm install cors
+const cors = require("cors");
 const products = require("./products");
 const cart = require("./cart");
 const app = express();
@@ -15,6 +18,13 @@ const port = 3000;
 
 // == Middleware ==
 app.use(express.json());
+
+// Cors
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
 
 // Define a route
 // .get(Route/URL, Callback(Route Handler))
@@ -67,7 +77,10 @@ app.post("/api/products", (req, res) => {
   products.push(newProduct);
   // 200: OK - Successful
   // 201: Succesfully created.
-  res.status(201).json({ message: "Product added to the product list." });
+  res.status(201).json({
+    message: "Product added to the product list.",
+    product: newProduct,
+  });
 });
 
 app.put("/api/products/:productId", (req, res) => {
@@ -118,12 +131,21 @@ app.post("/api/cart", (req, res) => {
     (productObject) => productObject.id === productId
   );
 
-  if (product) {
-    cart.push(product);
-    res.status(201).json({ message: "Product added to cart." });
-  } else {
-    res.status(404).json({ message: "Product nof found." });
+  if (!product) {
+    res.status(404).json({ message: "Product not found." });
   }
+
+  const existingCartItem = cart.find((item) => item.id === productId);
+
+  if (existingCartItem) {
+    existingCartItem.quantity++;
+  } else {
+    cart.push({ ...product, quantity: 1 });
+  }
+
+  res.status(201).json({
+    message: "Product added to cart successfully!",
+  });
 });
 
 app.get("/api/cart", (req, res) => {
