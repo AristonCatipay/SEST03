@@ -6,6 +6,7 @@ export default function Products() {
   const [products, setProducts] = useState([]);
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState(0);
+  const [selectedProductId, setSelectedProductId] = useState(null);
 
   // useEffect(() => {}, []): sideeffect that will only run on mount.
   useEffect(() => {
@@ -30,7 +31,7 @@ export default function Products() {
     fetchProducts();
   }, []);
 
-  const addNewProduct = async () => {
+  const addProduct = async () => {
     try {
       const response = await fetch("http://localhost:3000/api/products", {
         method: "POST",
@@ -45,12 +46,124 @@ export default function Products() {
       }
 
       const data = await response.json();
-      setProducts([...products, response.products]);
+      setProducts([...products, data.product]);
       setProductName("");
       setProductPrice(0);
     } catch (error) {
       setError(error.message);
       console.log("Error adding product:", error);
+    }
+  };
+
+  const deleteProduct = async (productId) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/products/${productId}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP Error! Status: ${response.status}`);
+      }
+
+      const data = response.json();
+
+      // .filter(): create a new array with elements that passed the test condition.
+      const updatedProducts = products.filter(
+        (productObject) => productObject.id !== productId
+      );
+
+      setProducts(updatedProducts);
+      // console.log(data.message);
+      console.log("Product deleted successfully!");
+    } catch (error) {
+      setError(error.message);
+      console.log("Error deleting product:", error);
+    }
+  };
+
+  const handleProductUpdate = async (productId) => {
+    setSelectedProductId(productId);
+
+    const productToUpdate = products.find(
+      (productObject) => productObject.id === productId
+    );
+
+    setProductName(productToUpdate.name);
+    setProductPrice(productToUpdate.price);
+  };
+
+  const updateProduct = async () => {
+    if (!selectedProductId) return;
+
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/products/${selectedProductId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: productName,
+            price: productPrice,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP Error! Status ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log(data.message);
+
+      const updatedProduct = data.product;
+      const updatedProducts = products.map((productObject) => {
+        if (productObject.id === selectedProductId) {
+          return updatedProduct;
+        } else {
+          return productObject;
+        }
+      });
+
+      setProducts(updatedProducts);
+      setSelectedProductId(null);
+      setProductName("");
+      setProductPrice(0);
+    } catch (error) {
+      setError(error.message);
+      console.log("Error updating prouduct:", error);
+    }
+  };
+
+  const handleCancelUpdate = () => {
+    setSelectedProductId(null);
+    setProductName("");
+    setProductPrice(0);
+  };
+
+  const addToCart = async (productId) => {
+    try {
+      const response = await fetch("http://localhost:3000/api/cart", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ productId: productId }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP Error! Status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log(data.message);
+    } catch (error) {
+      setError(error.message);
+      console.log("Error adding product to cart:", error);
     }
   };
 
@@ -71,12 +184,24 @@ export default function Products() {
           {products.map((productObject) => (
             <li key={productObject.id}>
               Name: {productObject.name} Price: {productObject.price}
+              <button onClick={() => addToCart(productObject.id)}>
+                Add to Cart
+              </button>
+              <button onClick={() => handleProductUpdate(productObject.id)}>
+                Update
+              </button>
+              <button onClick={() => deleteProduct(productObject.id)}>
+                Delete
+              </button>
             </li>
           ))}
         </ul>
       )}
+      {/* condition ? true : false */}
 
-      <h2>Add New Product</h2>
+      <h2>
+        {selectedProductId ? "Update Product Details" : "Add New Product"}
+      </h2>
       <form action="">
         <div>
           <label htmlFor="product-name-id">Name:</label>
@@ -96,9 +221,21 @@ export default function Products() {
             onChange={(event) => setProductPrice(Number(event.target.value))}
           />
         </div>
-        <button type="button" onClick={addNewProduct}>
-          Add Product
-        </button>
+        {/* condition ? true : false */}
+        {selectedProductId ? (
+          <>
+            <button type="button" onClick={updateProduct}>
+              Save Changes
+            </button>
+            <button type="reset" onClick={handleCancelUpdate}>
+              Cancel
+            </button>
+          </>
+        ) : (
+          <button type="button" onClick={addProduct}>
+            Add Product
+          </button>
+        )}
       </form>
     </div>
   );

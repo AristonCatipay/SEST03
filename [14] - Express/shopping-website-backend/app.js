@@ -98,7 +98,9 @@ app.put("/api/products/:productId", (req, res) => {
   if (product) {
     product.name = name;
     product.price = price;
-    res.status(200).json({ message: "Product updated successfully!" });
+    res
+      .status(200)
+      .json({ message: "Product updated successfully!", product: product });
   } else {
     res.status(404).json({ message: "Product not found!" });
   }
@@ -149,7 +151,7 @@ app.post("/api/cart", (req, res) => {
 });
 
 app.get("/api/cart", (req, res) => {
-  res.status(200).json({ cart });
+  res.status(200).json(cart);
 });
 
 app.delete("/api/cart/:productId", (req, res) => {
